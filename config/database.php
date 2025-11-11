@@ -1,0 +1,24 @@
+<?php
+class Database {
+    private $host = "localhost";
+    private $db_name = "bike_store";  // Asegúrate de que el nombre de la base de datos sea correcto
+    private $username = "root";       // Ajusta según tu configuración
+    private $password = "";           // Ajusta según tu configuración
+    public $conn;
+
+    // Obtener la conexión a la base de datos
+    public function getConnection() {
+        $this->conn = null;
+
+        try {
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name,
+                $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $exception) {
+            echo "Error de conexión: " . $exception->getMessage();
+        }
+
+        return $this->conn;
+    }
+}
+?>

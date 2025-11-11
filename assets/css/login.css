@@ -1,0 +1,119 @@
+body {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* Fondo con animación suave */
+body::before {
+    content: "";
+    position: absolute;
+    width: 250%;
+    height: 250%;
+    background: radial-gradient(circle at 20% 20%, rgba(220,53,69,0.08), transparent 70%),
+                radial-gradient(circle at 80% 30%, rgba(255,193,7,0.12), transparent 70%),
+                radial-gradient(circle at 60% 80%, rgba(13,110,253,0.10), transparent 70%);
+    animation: moveBg 20s linear infinite alternate;
+    z-index: 0;
+}
+
+@keyframes moveBg {
+    from { transform: translate(-10%, -10%) scale(1); }
+    to   { transform: translate(10%, 10%) scale(1.05); }
+}
+
+/* Tarjeta del login */
+.login-card {
+    position: relative;
+    background: #fff;
+    padding: 45px 40px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.9s ease;
+    z-index: 1;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Título */
+.login-card h3 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Inputs con íconos y microanimación */
+.input-group {
+    transition: all 0.3s ease;
+}
+.input-group:focus-within {
+    transform: scale(1.02);
+}
+
+.input-group-text {
+    background: transparent;
+    border-right: none;
+    color: #999;
+    transition: color 0.3s;
+}
+.input-group:focus-within .input-group-text {
+    color: #dc3545;
+}
+.form-control {
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    height: 45px;
+    box-shadow: none !important;
+}
+.form-control:focus {
+    border-color: #dc3545;
+}
+
+/* Botón con animación */
+.btn-login {
+    background: #dc3545;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    border-radius: 10px;
+    color: white;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.btn-login:hover {
+    background: #b91c32;
+    transform: scale(1.02);
+}
+.btn-login:active {
+    transform: scale(0.98);
+}
+
+/* Mensaje de error */
+.alert {
+    animation: shake 0.4s ease;
+    border-radius: 10px;
+}
+@keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%,60% { transform: translateX(-6px); }
+    40%,80% { transform: translateX(6px); }
+}
+
+/* Checkbox */
+.form-check-label {
+    color: #666;
+    font-size: 0.9rem;
+}
